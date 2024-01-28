@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+    <div class="container">
+        <div class="grid">
+            <div class="row">
+                <div class="A11"></div>
+                <div class="A12"></div>
+                <div class="A13"></div>
+            </div>
+            <div class="row">
+                <div class="B21"></div>
+                <div class="B22"></div>
+                <div class="B23"></div>
+            </div>
+            <div class="row">
+                <div class="C31"></div>
+                <div class="C32"></div>
+                <div class="C33"></div>
+            </div>
+        </div>
+    </div>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: auto;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .grid {
+            display: flex;
+            margin: auto;
+        }
+
+
+        .row div {
+            background-color: darkgreen;
+            width: 100px;
+            height: 100px;
+            border: solid 4px;
+        }
+    </style>
+
+    <script>
+        let counter = 1;
+        let divCollection = document.body.getElementsByClassName("row");
+
+        let divList = [];
+        for (let i = 0; i < divCollection.length; i++) {
+            divList.push(divCollection[i].children);
+            console.log(divList);
+
+        }
+
+        for (let i = 0; i < divList.length; i++) {
+            for (let j = 0; j < divList.length; j++) {
+                divList[i][j].style.backgroundColor = "darkgreen";
+                divList[i][j].onclick = function (event) {
+
+                    let target = event.target;
+
+                    if (target.style.backgroundColor == "darkgreen") {
+                        if (counter % 2 == 0) {
+                            target.style.backgroundColor = "blue";
+                            counter++;
+                        } else {
+                            target.style.backgroundColor = "red";
+                            counter++
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
