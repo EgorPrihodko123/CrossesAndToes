@@ -1,7 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 
+
 <body>
+    <button onclick="resetGame()"
+        style="position:absolute;left: 900px;bottom: 67%; text-align: center;font-size: 40px;">Reset</button>
     <div class="container">
         <div class="grid">
             <div class="row">
@@ -55,12 +58,10 @@
     <script>
         let counter = 1;
         let divCollection = document.body.getElementsByClassName("row");
-
         let divList = [];
+
         for (let i = 0; i < divCollection.length; i++) {
             divList.push(divCollection[i].children);
-            
-
         }
 
         for (let i = 0; i < divList.length; i++) {
@@ -79,9 +80,44 @@
                             counter++
                         }
                     }
+                    if (divList[0][0].style.backgroundColor == "blue" && divList[0][1].style.backgroundColor == "blue" && divList[0][2].style.backgroundColor == "blue" ||
+                        divList[1][0].style.backgroundColor == "blue" && divList[1][1].style.backgroundColor == "blue" && divList[1][2].style.backgroundColor == "blue" ||
+                        divList[2][0].style.backgroundColor == "blue" && divList[2][1].style.backgroundColor == "blue" && divList[2][2].style.backgroundColor == "blue" ||
+
+                        divList[0][0].style.backgroundColor == "blue" && divList[1][0].style.backgroundColor == "blue" && divList[2][0].style.backgroundColor == "blue" ||
+                        divList[0][1].style.backgroundColor == "blue" && divList[1][1].style.backgroundColor == "blue" && divList[2][1].style.backgroundColor == "blue" ||
+                        divList[0][2].style.backgroundColor == "blue" && divList[1][2].style.backgroundColor == "blue" && divList[2][2].style.backgroundColor == "blue" ||
+
+                        divList[0][0].style.backgroundColor == "blue" && divList[1][1].style.backgroundColor == "blue" && divList[2][2].style.backgroundColor == "blue" ||
+                        divList[0][2].style.backgroundColor == "blue" && divList[1][1].style.backgroundColor == "blue" && divList[0][2].style.backgroundColor == "blue"
+                    ) {
+                        alert("Blue wins");
+                    }
+                    else if (divList[0][0].style.backgroundColor == "red" && divList[0][1].style.backgroundColor == "red" && divList[0][2].style.backgroundColor == "red" ||
+                        divList[1][0].style.backgroundColor == "red" && divList[1][1].style.backgroundColor == "red" && divList[1][2].style.backgroundColor == "red" ||
+                        divList[2][0].style.backgroundColor == "red" && divList[2][1].style.backgroundColor == "red" && divList[2][2].style.backgroundColor == "red" ||
+
+                        divList[0][0].style.backgroundColor == "red" && divList[1][0].style.backgroundColor == "red" && divList[2][0].style.backgroundColor == "red" ||
+                        divList[0][1].style.backgroundColor == "red" && divList[1][1].style.backgroundColor == "red" && divList[2][1].style.backgroundColor == "red" ||
+                        divList[0][2].style.backgroundColor == "red" && divList[1][2].style.backgroundColor == "red" && divList[2][2].style.backgroundColor == "red" ||
+
+                        divList[0][0].style.backgroundColor == "red" && divList[1][1].style.backgroundColor == "red" && divList[2][2].style.backgroundColor == "red" ||
+                        divList[0][2].style.backgroundColor == "red" && divList[1][1].style.backgroundColor == "red" && divList[0][2].style.backgroundColor == "red"
+                    ) {
+                        alert("Red wins");
+                    }
                 }
             }
         }
+        function resetGame() {
+            for (let i = 0; i < divList.length; i++) {
+                for (let j = 0; j < divList.length; j++) {
+                    divList[i][j].style.backgroundColor = "darkgreen";
+                }
+            }
+            counter = 1;
+        }
+
     </script>
 
 </body>
